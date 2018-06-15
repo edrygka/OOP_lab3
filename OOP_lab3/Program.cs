@@ -18,7 +18,7 @@ namespace OOP_lab3
             //toy.View();
             BatchOfToys batch = new BatchOfToys(toy, 0.1F, 5, new DateTime(1998,12,21));
             BatchOfToys batch1 = new BatchOfToys(toy, 0.1F, 5, new DateTime(1998,12,22));
-            Console.WriteLine(batch != batch1);
+            //Console.WriteLine(batch != batch1);
             //batch.View();
 
             var storeOfToys = new List<BatchOfToys>
@@ -27,10 +27,17 @@ namespace OOP_lab3
                 new BatchOfToys(toy, 0.7F)
             };
 
-            Store store = new Store();
-            Store store1 = new Store();
+            var storeOfToys1 = new List<BatchOfToys>
+            {
+                batch1,
+                batch,
+                new BatchOfToys(toy, 0.2F)
+            };
+
+            Store store = new Store(storeOfToys);
+            Store store1 = new Store(storeOfToys1);
             //Console.WriteLine(store == store1);
-            Console.WriteLine("\n==========\n");
+            Console.WriteLine(store + store1);
             //Console.WriteLine(store1);
 
             //Store store = new Store(storeOfToys);

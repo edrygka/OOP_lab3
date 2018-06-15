@@ -88,6 +88,20 @@ namespace OOP_lab3
             return !store1.Equals(store2);
         }
 
+        public static Store operator +(Store store1, Store store2)
+        {
+            Store store = new Store();
+            store1.storeOfToys.ForEach(i =>
+            {
+                store.storeOfToys.Add(i);
+            });
+            store2.storeOfToys.ForEach(i =>
+            {
+                store.storeOfToys.Add(i);
+            });
+            return store;
+        }
+
         /*
          * View Store information
          */

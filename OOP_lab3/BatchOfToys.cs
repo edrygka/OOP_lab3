@@ -16,16 +16,16 @@ namespace OOP_lab3
          */
         public BatchOfToys()
         {
-            toy = new Toy();
-            price = 0.3F;
-            quantity = 1;
+            toy = null;
+            price = 0F;
+            quantity = 0;
             date = DateTime.Now;
         }
 
         public BatchOfToys(Toy _toy)
         {
             toy = _toy;
-            price = 0.3F;
+            price = 0F;
             quantity = 1;
             date = DateTime.Now;
         }
@@ -106,6 +106,23 @@ namespace OOP_lab3
             return !batch1.Equals(batch2);
         }
 
+        public static BatchOfToys operator +(BatchOfToys batch1, BatchOfToys batch2)
+        {
+            BatchOfToys batch = new BatchOfToys();
+            batch.Price = batch1.Price + batch2.Price;
+            batch.Quentity = batch1.Quentity + batch2.Quentity;
+            return batch;
+        }
+
+        public static BatchOfToys operator -(BatchOfToys batch1, BatchOfToys batch2)
+        {
+            if (batch1.Price < batch2.Price) throw new Exception("First price is lower than second");
+            if (batch1.Quentity < batch2.Quentity) throw new Exception("First quantity is lower than second");
+            BatchOfToys batch = new BatchOfToys();
+            batch.Price = batch1.Price - batch2.Price;
+            batch.Quentity = batch1.Quentity - batch2.Quentity;
+            return batch;
+        }
 
         /*
          * View function
