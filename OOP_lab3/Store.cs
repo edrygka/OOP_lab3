@@ -67,6 +67,27 @@ namespace OOP_lab3
 
         public override int GetHashCode() => base.GetHashCode();
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            Store store = obj as Store;
+            return (obj != null) && (count == store.count) && (storeOfToys == store.storeOfToys);
+        }
+
+        public static bool operator ==(Store store1, Store store2)
+        {
+            if (object.ReferenceEquals(store1, null))
+            {
+                return object.ReferenceEquals(store2, null);
+            }
+            return store1.Equals(store2);
+        }
+
+        public static bool operator !=(Store store1, Store store2)
+        {
+            return !store1.Equals(store2);
+        }
+
         /*
          * View Store information
          */

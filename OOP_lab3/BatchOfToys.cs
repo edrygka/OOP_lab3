@@ -85,6 +85,28 @@ namespace OOP_lab3
 
         public static explicit operator string(BatchOfToys _b) => _b.ToString();
 
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            BatchOfToys batch = obj as BatchOfToys;
+            return (obj != null) && (Toy == batch.Toy) && (Price == batch.Price) && (Quentity == batch.Quentity) && (Date == batch.Date);
+        }
+
+        public static bool operator ==(BatchOfToys batch1, BatchOfToys batch2)
+        {
+            if (object.ReferenceEquals(batch1, null))
+            {
+                return object.ReferenceEquals(batch2, null);
+            }
+            return batch1.Equals(batch2);
+        }
+
+        public static bool operator !=(BatchOfToys batch1, BatchOfToys batch2)
+        {
+            return !batch1.Equals(batch2);
+        }
+
+
         /*
          * View function
          */

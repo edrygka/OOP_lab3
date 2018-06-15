@@ -41,7 +41,7 @@ namespace OOP_lab3
             c = Clasification.TECHMODEL;
         }
 
-        private Toy(string _name, string _provider, Clasification _c)
+        private Toy(string _name, string _provider, Clasification _c)// ASK a quastion
         {
             name = _name;
             provider = _provider;
@@ -75,6 +75,27 @@ namespace OOP_lab3
         public override int GetHashCode() => base.GetHashCode();
 
         public override string ToString() => $"Toy:\nName = {name}, Provider = {provider}, Classification = {c}";
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null) return false;
+            Toy toy = obj as Toy;
+            return (obj != null) && (Provider == toy.Provider) && (Clasification == toy.Clasification) && (Name == toy.Name);
+        }
+
+        public static bool operator ==(Toy toy1, Toy toy2)
+        {
+            if (object.ReferenceEquals(toy1, null))
+            {
+                return object.ReferenceEquals(toy2, null);
+            }
+            return toy1.Equals(toy2);
+        }
+
+        public static bool operator !=(Toy toy1, Toy toy2)
+        {
+            return !toy1.Equals(toy2);
+        }
 
         /*
          * View function
