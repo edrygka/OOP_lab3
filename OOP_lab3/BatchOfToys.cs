@@ -1,7 +1,7 @@
 ﻿using System;
 namespace OOP_lab3
 {
-    public class BatchOfToys : ICloneable
+    public class BatchOfToys : ICloneable, IComparable
     {
         /*
          * BatchOfToys fields
@@ -122,6 +122,17 @@ namespace OOP_lab3
             batch.Price = batch1.Price - batch2.Price;
             batch.Quentity = batch1.Quentity - batch2.Quentity;
             return batch;
+        }
+
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+            BatchOfToys p = obj as BatchOfToys;
+            if (p != null)
+            {
+                return price.CompareTo(p.price);
+            }
+            else throw new Exception("obj is not parcel");
         }
 
         /*

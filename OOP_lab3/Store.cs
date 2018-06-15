@@ -35,7 +35,9 @@ namespace OOP_lab3
         {
             get => storeOfToys;
             set => storeOfToys = value;
-        } 
+        }
+
+        public int Count => count;
 
         /*
          * Add batch of toys into Store
@@ -101,6 +103,9 @@ namespace OOP_lab3
             });
             return store;
         }
+
+        //public int CompareTo(Store store) => store.count.CompareTo(store.count);
+        
 
         /*
          * View Store information

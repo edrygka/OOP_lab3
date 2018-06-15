@@ -35,9 +35,10 @@ namespace OOP_lab3
             };
 
             Store store = new Store(storeOfToys);
-            Store store1 = new Store(storeOfToys1);
-            //Console.WriteLine(store == store1);
-            Console.WriteLine(store + store1);
+            Store store1 = new Store(storeOfToys);
+            Console.WriteLine(store == store1);
+            Console.WriteLine(store.Equals(store1));
+            Console.WriteLine(batch.CompareTo(batch1));
             //Console.WriteLine(store1);
 
             //Store store = new Store(storeOfToys);

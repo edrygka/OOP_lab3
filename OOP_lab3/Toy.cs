@@ -1,7 +1,7 @@
 ﻿using System;
 namespace OOP_lab3
 {
-    enum Clasification
+    public enum Clasification
         {
             SOFTTOY = 1,
             DOLL,
@@ -41,7 +41,7 @@ namespace OOP_lab3
             c = Clasification.TECHMODEL;
         }
 
-        private Toy(string _name, string _provider, Clasification _c)// ASK a quastion
+        public Toy(string _name, string _provider, Clasification _c)
         {
             name = _name;
             provider = _provider;
@@ -61,7 +61,6 @@ namespace OOP_lab3
         {
             get => provider;
             set => provider = value;
-            
         }
 
         private Clasification Clasification 
